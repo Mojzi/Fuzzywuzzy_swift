@@ -46,7 +46,7 @@ public extension String {
             //let longSubEnd = longSubStart.advanced(by: shorter.characters.count-1)
             let closedRange: Range = longSubStart..<longSubEnd
             let longSubStr = String(longer[closedRange])
-            let r = StringMatcher(str1: shorter, str2: longSubStr).fuzzRatio()
+            let r = StringMatcher(str1: shorter, str2: longSubStr ?? "").fuzzRatio()
             if r > 0.995 { /// magic number appears in original python code
                 return 1
             } else {
